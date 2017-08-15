@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
+import { addTodoList } from '../actions/todoLists'
 
 class AddTodoList extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      showAddBox: false
+      showAddBox: false,
+      text: ''
     }
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    this.props.onTodoListSubmit(addTodoList(this.state.text))
+    this.setState({
+      showAddBox: false
+    })
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      text: e.target.value
+    })
   }
 
   handleClick = () => {
@@ -19,8 +35,8 @@ class AddTodoList extends Component {
     const AddTodoListBox = () => {
       if (this.state.showAddBox) {
         return (
-          <form>
-            <input type="text" />
+          <form onSubmit={this.handleSubmit}>
+            <input type="text" onChange={this.handleChange} />
             <input type="submit" value="Add TodoList" />
             <button onClick={this.handleClick}>Cancel</button>
           </form>
