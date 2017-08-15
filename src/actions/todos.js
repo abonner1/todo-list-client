@@ -10,10 +10,10 @@ const EditTodo = todo => {
 
 const ToggleTodo = id => {
   type: 'TOGGLE_TODO',
-  todo
+  id
 }
 
 const DeleteTodo = id => {
   type: 'DELETE_TODO',
-  todo
+  id
 }
