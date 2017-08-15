@@ -8,9 +8,9 @@ class VisibleTodoList extends Component {
         <h1>Current Todo List</h1>
         <AddTodo />
         <ul>
-          <li>Milk</li>
-          <li>Eggs</li>
-          <li>Butter</li>
+          <li><input type="checkbox" /> Milk <button>X</button></li>
+          <li><input type="checkbox" /> Eggs <button>X</button></li>
+          <li><input type="checkbox" /> Butter <button>X</button></li>
         </ul>
       </div>
   )
