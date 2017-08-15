@@ -1,5 +1,5 @@
 let nextId = 1
-const TodoLists = (state = [], action) => {
+const todoLists = (state = [], action) => {
   switch(action.type) {
     case 'ADD_TODOLIST':
       let todoList = {name: action.todoList, id: nextId++, favorited: false}
@@ -23,4 +23,4 @@ const TodoLists = (state = [], action) => {
   }
 }
 
-export default TodoLists
+export default todoLists
