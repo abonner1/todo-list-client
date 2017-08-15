@@ -8,12 +8,12 @@ const EditTodoList = todoList => {
   todoList
 }
 
-const FavoriteTodoList = todoList => {
+const FavoriteTodoList = id => {
   type: 'FAVORITE_TODOLIST',
   todoList
 }
 
-const DeleteTodoList = todoList => {
+const DeleteTodoList = id => {
   type: 'DELETE_TODOLIST',
   todoList
 }

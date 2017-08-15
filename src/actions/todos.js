@@ -8,12 +8,12 @@ const EditTodo = todo => {
   todo
 }
 
-const ToggleTodo = todo => {
+const ToggleTodo = id => {
   type: 'TOGGLE_TODO',
   todo
 }
 
-const DeleteTodo = todo => {
+const DeleteTodo = id => {
   type: 'DELETE_TODO',
   todo
 }
