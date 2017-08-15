@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DayPicker from './CalendarWidget';
 import FilterableTodoLists from '../containers/FilterableTodoLists';
 import Header from './Header';
-import VisibleTodoList from './VisibleTodoList';
+import VisibleTodoList from '../containers/VisibleTodoList';
 
 class App extends Component {
   render() {
