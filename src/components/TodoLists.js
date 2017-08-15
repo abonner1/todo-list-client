@@ -11,7 +11,7 @@ const TodoLists = props => {
       <ul>
         {todoLists}
       </ul>
-      <AddTodoList />
+      <AddTodoList onTodoListSubmit={props.onTodoListSubmit} />
     </div>
   )
 }
