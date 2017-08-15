@@ -1,5 +1,4 @@
 import React from 'react';
-import TodoList from './TodoList';
 import AddTodoList from './AddTodoList';
 
 const TodoLists = props => {
