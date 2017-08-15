@@ -1,14 +1,12 @@
-import React, {Component} from 'react';
+import { connect } from 'react-redux'
 import TodoLists from '../components/TodoLists';
 
-class FilterableTodoLists extends Component {
-  render() {
-    return (
-      <div>
-        <TodoLists />
-      </div>
-    )
-  }
+const mapStateToProps = state => {
+  return {todoLists: state.todoLists}
 }
+
+const FilterableTodoLists = connect(
+  mapStateToProps
+)(TodoLists)
 
 export default FilterableTodoLists;
