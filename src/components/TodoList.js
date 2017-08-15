@@ -1,10 +1,11 @@
 import React from 'react';
 import AddTodo from './AddTodo';
 
-const TodoList = (props) => {
+const TodoList = ({todoLists, todos}) => {
+  const displayName = todoLists[0] ? todoLists[0].name : null
   return (
     <div>
-      <h1>Current Todo List</h1>
+      <h1>{displayName}</h1>
       <AddTodo />
       <ul>
         <li><input type="checkbox" /> Milk <button>X</button></li>
