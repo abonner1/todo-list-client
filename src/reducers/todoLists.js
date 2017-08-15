@@ -7,7 +7,7 @@ const TodoLists = (state = [], action) => {
     case 'EDIT_TODOLIST':
       return state.map(todoList =>
         (todoList.id === action.todoList.id)
-        ? {action.todoList}
+        ? action.todoList
         : todoList
       )
     case 'TOGGLE_FAVORITE':
