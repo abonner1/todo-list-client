@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import AddTodo from './AddTodo';
+import AddTodo from '../components/AddTodo';
 
 class VisibleTodoList extends Component {
   render() {
