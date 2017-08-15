@@ -11,15 +11,29 @@ class AddTodoList extends Component {
 
   handleClick = () => {
     this.setState({
-      showAddBox: true
+      showAddBox: !this.state.showAddBox
     })
   }
 
   render () {
-    const AddTodoListBox =  this.state.showAddBox ? <input type="text" /> : <button onClick={this.handleClick}>+ Add Todo</button>
+    const AddTodoListBox = () => {
+      if (this.state.showAddBox) {
+        return (
+          <form>
+            <input type="text" />
+            <input type="submit" value="Add TodoList" />
+            <button onClick={this.handleClick}>Cancel</button>
+          </form>
+        )
+      } else {
+        return (
+          <button onClick={this.handleClick}>+ Add Todo</button>
+        )
+      }
+    }
     return (
       <div>
-        {AddTodoListBox}
+        {AddTodoListBox()}
       </div>
     )
   }
