@@ -1,8 +1,8 @@
-let nextId = 0
+let nextId = 1
 const TodoLists = (state = [], action) => {
   switch(action.type) {
     case 'ADD_TODOLIST':
-      let todoList = {...action.todoList, id: nextId++, favorited: false}
+      let todoList = {name: action.todoList, id: nextId++, favorited: false}
       return [...state, todoList]
     case 'EDIT_TODOLIST':
       return state.map(todoList =>
