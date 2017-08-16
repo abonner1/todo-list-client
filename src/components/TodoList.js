@@ -1,17 +1,19 @@
 import React from 'react';
 import AddTodo from './AddTodo';
+import { Redirect } from 'react-router-dom'
 
-const TodoList = ({todoLists, todos}) => {
-  const displayName = todoLists[0] ? todoLists[0].name : null
+const TodoList = ({todoLists, todos, onTodoSubmit, match}) => {
+  const currentTodoList = todoLists.find(todoList => todoList.id === parseInt(match.params.todo_list_id, 10))
+  const currentTodos = todos.length ? todos.filter(todo => todo.todoListId === currentTodoList.id) : null
+
   return (
     <div>
-      <h1>{displayName}</h1>
-      <AddTodo />
+      <h1>{currentTodoList && currentTodoList.name}</h1>
+      <AddTodo onTodoSubmit={onTodoSubmit} id={match.params.todo_list_id} />
       <ul>
-        <li><input type="checkbox" /> Milk <button>X</button></li>
-        <li><input type="checkbox" /> Eggs <button>X</button></li>
-        <li><input type="checkbox" /> Butter <button>X</button></li>
+        {currentTodos && currentTodos.map((todo, i) => <li key={i}>{todo.description}</li>)}
       </ul>
+      {currentTodoList ? null : <Redirect from="/todo_lists/:todo_list_id" to="/todo_lists" />}
     </div>
   )
 }
