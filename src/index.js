@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import App from './components/App'
 import TodoApp from './reducers/index'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker'
 
 const store = createStore(TodoApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
@@ -12,7 +12,10 @@ const store = createStore(TodoApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <Route exact path="/" component={App} />
+      <div>
+        <Route path="/todo_lists" component={App} />
+        <Redirect from="/" to="todo_lists" />
+      </div>
     </Router>
   </Provider>,
   document.getElementById('root')
