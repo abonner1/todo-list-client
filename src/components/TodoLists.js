@@ -1,16 +1,17 @@
 import React from 'react';
 import AddTodoList from './AddTodoList';
+import { Link } from 'react-router-dom'
 
-const TodoLists = props => {
-  const todoLists = props.todoLists.map((todoList, i) => <li key={i}>{todoList.name}</li>)
+const TodoLists = ({match, onTodoListSubmit, todoLists}) => {
+  const displayTodoLists = todoLists.map((todoList, i) => <li key={i}><Link to={`/todo_lists/${todoList.id}`}>{todoList.name}</Link></li>)
 
   return (
     <div>
       <h2>Your Todo Lists</h2>
       <ul>
-        {todoLists}
+        {displayTodoLists}
       </ul>
-      <AddTodoList onTodoListSubmit={props.onTodoListSubmit} />
+      <AddTodoList onTodoListSubmit={onTodoListSubmit} />
     </div>
   )
 }
