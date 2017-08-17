@@ -7,7 +7,7 @@ const SingleTodoList = (props) => {
     <li>
       <Link to={`/todo_lists/${props.todoList.id}`}>
         {props.todoList.name}
-      </Link> <button type="button" onClick={() => props.onTodoListDelete(deleteTodoList(props.todoList.id))}>X</button></li>
+      </Link> <button type="button" onClick={() => props.onTodoListSubmit(deleteTodoList(props.todoList.id))}>X</button></li>
   )
 }
 

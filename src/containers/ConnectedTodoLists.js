@@ -7,8 +7,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onTodoListAdd: action => dispatch(action),
-    onTodoListDelete: action => dispatch(action)
+    onTodoListSubmit: action => dispatch(action)
   }
 }
 

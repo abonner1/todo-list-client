@@ -13,7 +13,7 @@ class AddTodoList extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.onTodoListAdd(addTodoList(this.state.text))
+    this.props.onTodoListSubmit(addTodoList(this.state.text))
     this.setState({
       showAddBox: false
     })
