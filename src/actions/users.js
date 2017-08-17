@@ -1,16 +1,14 @@
 import fetch from 'isomorphic-fetch'
 
-export const addUser = user => {
+export const addUser = () => {
   return {
-    type: 'ADD_USER',
-    user
+    type: 'ADD_USER'
   }
 }
 
-export const authenticateUser = user => {
+export const authenticateUser = () => {
   return {
-    type: 'AUTHENTICATE_USER',
-    user
+    type: 'AUTHENTICATE_USER'
   }
 }
 
@@ -23,7 +21,7 @@ export const receiveToken = json => {
 
 export const createUser(user) {
   return dispatch => {
-    dispatch(addUser(user))
+    dispatch(addUser())
     return fetch('http://localhost:3001/api/users', {
       method: 'Post',
       body: {
@@ -33,13 +31,18 @@ export const createUser(user) {
         "Content-Type": "application/json"
       }
     })
-      .then(response => response.json())
+      .then(response => {
+        if (response.state === 200) {
+
+        }
+        response.json()
+      })
   }
 }
 
 export const fetchToken(user) {
   return dispatch => {
-    dispatch(authenticateUser(user))
+    dispatch(authenticateUser())
     return fetch('http://localhost:3001/api/user_token', {
       method: 'POST',
       body: {
@@ -50,6 +53,6 @@ export const fetchToken(user) {
       }
     })
       .then(response => response.json())
-      .then(json => dispatch(receiveToken(json)))
+      .then(json => json.jwt ? dispatch(receiveToken(json)) : dispatch(failedAuthentication()))
   }
 }
