@@ -5,13 +5,6 @@ export const addTodo = todo => {
   }
 }
 
-export const editTodo = todo => {
-  return {
-    type: 'EDIT_TODO',
-    todo
-  }
-}
-
 export const toggleTodo = id => {
   return {
     type: 'TOGGLE_TODO',
