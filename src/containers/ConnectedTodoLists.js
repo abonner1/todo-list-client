@@ -12,9 +12,9 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const FilterableTodoLists = connect(
+const ConnectedTodoLists = connect(
   mapStateToProps,
   mapDispatchToProps
 )(TodoLists)
 
-export default FilterableTodoLists;
+export default ConnectedTodoLists;
