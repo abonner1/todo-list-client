@@ -21,6 +21,22 @@ export const receiveToken = json => {
   }
 }
 
+export const createUser(user) {
+  return dispatch => {
+    dispatch(addUser(user))
+    return fetch('http://localhost:3001/api/users', {
+      method: 'Post',
+      body: {
+        user
+      },
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => response.json())
+  }
+}
+
 export const fetchToken(user) {
   return dispatch => {
     dispatch(authenticateUser(user))
