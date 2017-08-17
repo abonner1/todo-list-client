@@ -4,7 +4,13 @@ class SignUp extends Component {
   render() {
     return (
       <div>
-        Sign Up
+        <h1>Sign up</h1>
+        <form>
+          <input type="text" placeholder="Your Email" />
+          <input type="password" name="password" placeholder="Password"/>
+          <input type="password" name="passwordConfirmation" placeholder="Confirm Password" />
+          <input type="submit" value="Sign up" />
+        </form>
       </div>
     )
   }
