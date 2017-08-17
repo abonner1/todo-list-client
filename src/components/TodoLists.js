@@ -1,9 +1,11 @@
-import React from 'react';
-import AddTodoList from './AddTodoList';
+import React from 'react'
+import AddTodoList from './AddTodoList'
 import { Link } from 'react-router-dom'
+import { deleteTodoList } from '../actions/todoLists'
 
-const TodoLists = ({match, onTodoListSubmit, todoLists}) => {
-  const displayTodoLists = todoLists.map((todoList, i) => <li key={i}><Link to={`/todo_lists/${todoList.id}`}>{todoList.name}</Link></li>)
+
+const TodoLists = ({match, onTodoListAdd, todoLists, onTodoListDelete}) => {
+  const displayTodoLists = todoLists.map((todoList, i) => <li key={i}><Link to={`/todo_lists/${todoList.id}`}>{todoList.name}</Link> <button type="button" onClick={() => onTodoListDelete(deleteTodoList(todoList.id))}>X</button></li>)
 
   return (
     <div>
@@ -11,7 +13,7 @@ const TodoLists = ({match, onTodoListSubmit, todoLists}) => {
       <ul>
         {displayTodoLists}
       </ul>
-      <AddTodoList onTodoListSubmit={onTodoListSubmit} />
+      <AddTodoList onTodoListAdd={onTodoListAdd} />
     </div>
   )
 }
