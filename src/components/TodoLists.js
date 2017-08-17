@@ -1,11 +1,10 @@
 import React from 'react'
 import AddTodoList from './AddTodoList'
-import { Link } from 'react-router-dom'
-import { deleteTodoList } from '../actions/todoLists'
+import SingleTodoList from './SingleTodoList'
 
 
 const TodoLists = ({match, onTodoListAdd, todoLists, onTodoListDelete}) => {
-  const displayTodoLists = todoLists.map((todoList, i) => <li key={i}><Link to={`/todo_lists/${todoList.id}`}>{todoList.name}</Link> <button type="button" onClick={() => onTodoListDelete(deleteTodoList(todoList.id))}>X</button></li>)
+  const displayTodoLists = todoLists.map((todoList, i) => <SingleTodoList key={i} todoList={todoList} onTodoListDelete={onTodoListDelete}/>)
 
   return (
     <div>
