@@ -13,7 +13,7 @@ class AddTodoList extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.onTodoListSubmit(addTodoList(this.state.text))
+    this.props.onTodoListAdd(addTodoList(this.state.text))
     this.setState({
       showAddBox: false
     })
@@ -38,7 +38,7 @@ class AddTodoList extends Component {
           <form onSubmit={this.handleSubmit}>
             <input type="text" onChange={this.handleChange} />
             <input type="submit" value="Add TodoList" />
-            <button onClick={this.handleClick}>Cancel</button>
+            <button type="button" onClick={this.handleClick}>Cancel</button>
           </form>
         )
       } else {
