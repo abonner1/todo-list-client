@@ -20,3 +20,20 @@ export const receiveToken = json => {
     token: json.jwt
   }
 }
+
+export const fetchToken(user) {
+  return dispatch => {
+    dispatch(authenticateUser(user))
+    return fetch('http://localhost:3001/api/user_token', {
+      method: 'POST',
+      body: {
+        auth: user
+      },
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => response.json())
+      .then(json => dispatch(receiveToken(json)))
+  }
+}
