@@ -3,8 +3,10 @@ import AddTodoList from './AddTodoList'
 import SingleTodoList from './SingleTodoList'
 
 
-const TodoLists = ({match, onTodoListSubmit, todoLists}) => {
-  const displayTodoLists = todoLists.map((todoList, i) => <SingleTodoList key={i} todoList={todoList} onTodoListSubmit={onTodoListSubmit}/>)
+const TodoLists = ({match, dispatch, todoLists}) => {
+  const displayTodoLists = todoLists.map((todoList, i) => {
+    return <SingleTodoList key={i} todoList={todoList} dispatch={dispatch}/>
+  })
 
   return (
     <div>
@@ -12,7 +14,7 @@ const TodoLists = ({match, onTodoListSubmit, todoLists}) => {
       <ul>
         {displayTodoLists}
       </ul>
-      <AddTodoList onTodoListSubmit={onTodoListSubmit} />
+      <AddTodoList dispatch={dispatch} />
     </div>
   )
 }
