@@ -4,7 +4,7 @@ export const addUser = () => ({ type: 'ADD_USER' })
 
 export const authenticateUser = () => ({ type: 'AUTHENTICATE_USER' })
 
-export const receiveToken = json => ({ type: 'RECIEVE_TOKEN', token: json.jwt })
+export const receiveToken = token => ({ type: 'RECIEVE_TOKEN', token: token })
 
 export const logOut = () => ({ type: 'LOGOUT' })
 
