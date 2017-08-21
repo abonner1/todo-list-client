@@ -18,7 +18,10 @@ class SignIn extends Component {
     })
   }
 
-
+  handleSubmit = (e) => {
+    e.preventDefault()
+    this.props.dispatch(fetchToken({email: this.state.email, password: this.state.password}))
+  }
 
   render() {
     return (
@@ -34,6 +37,10 @@ class SignIn extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch
+  }
+}
 
-
-export default SignIn
+export default connect(null, mapDispatchToProps)(SignIn)
