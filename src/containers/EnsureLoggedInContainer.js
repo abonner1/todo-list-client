@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Route, Redirect } from 'react-router-dom'
+import { Route, Redirect, Link } from 'react-router-dom'
 
 import SignIn from '../components/User/SignIn'
 import SignUp from '../components/User/SignUp'
@@ -10,6 +10,8 @@ class EnsureLoggedInContainer extends Component {
     if (!this.props.isAuthenticated) {
       return (
         <div>
+          <Link to="/sign_in">Sign In</Link>
+          <Link to="/sign_up">Sign Up</Link>
           <Route path="/sign_up" component={SignUp} />
           <Route path="/sign_in" component={SignIn} />
         </div>
