@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { deleteTodoList } from '../actions/todoLists'
 
-const SingleTodoList = (props) => {
+const TodoListDisplay = (props) => {
   return (
     <li>
       <Link to={`/todo_lists/${props.todoList.id}`}>
@@ -15,4 +15,4 @@ const SingleTodoList = (props) => {
   )
 }
 
-export default SingleTodoList
+export default TodoListDisplay
