@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Route, Redirect, Link } from 'react-router-dom'
-
 import SignIn from '../components/SignIn'
 import SignUp from '../components/SignUp'
 
@@ -18,9 +17,7 @@ class EnsureLoggedInContainer extends Component {
       )
     } else {
       return (
-        <div>
-          <Redirect to="/todo_lists" />
-        </div>
+        <Redirect to="/todo_lists" />
       )
     }
   }
