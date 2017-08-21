@@ -2,13 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { deleteTodoList } from '../actions/todoLists'
 
-const TodoListDisplay = (props) => {
+const TodoListDisplay = ({todoList, dispatch}) => {
   return (
     <li>
-      <Link to={`/todo_lists/${props.todoList.id}`}>
-        {props.todoList.name}
+      <Link to={`/todo_lists/${todoList.id}`}>
+        {todoList.name}
       </Link>
-      <button type="button" onClick={() => props.dispatch(deleteTodoList(props.todoList.id))}>
+      <button type="button" onClick={() => dispatch(deleteTodoList(todoList.id))}>
         X
       </button>
     </li>
