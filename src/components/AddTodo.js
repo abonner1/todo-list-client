@@ -14,7 +14,7 @@ class AddTodo extends Component {
     e.preventDefault()
     this.props.onTodoSubmit(addTodo({
       description: this.state.text,
-      todoListId: parseInt(this.props.id, 10)
+      todoListId: this.props.id
     }))
     this.setState({
       text: ''
