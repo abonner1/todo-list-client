@@ -8,12 +8,12 @@ export const receiveToken = json => ({ type: 'RECIEVE_TOKEN', token: json.jwt })
 
 export const logOut = () => ({ type: 'LOGOUT' })
 
-export const createUser(user) {
+export const createUser = (user) => {
   return dispatch => {
     dispatch(addUser())
     return fetch('http://localhost:3001/api/users', {
-      method: 'Post',
-      body: { user },
+      method: 'POST',
+      body: JSON.stringify({user}),
       headers: { "Content-Type": "application/json" }
     })
       .then(response => {
@@ -21,20 +21,26 @@ export const createUser(user) {
           return response.json()
         }
       })
+      .then(json => {
+        dispatch(fetchToken(user))
+      })
   }
 }
 
-export const fetchToken(user) {
+export const fetchToken = (user) => {
   return dispatch => {
     dispatch(authenticateUser())
     return fetch('http://localhost:3001/api/user_token', {
       method: 'POST',
-      body: { auth: user },
+      body: JSON.stringify({ auth: user }),
       headers: { "Content-Type": "application/json" }
     })
-      .then(currentUser => {
-        const { jwt } = token
-        localStorage.setItem('token', JSON.stringify(token))
-      })
+      .then(response => response.json())
+      .then(json => {
+        const { jwt } = json
+        localStorage.setItem('token', jwt)
+        dispatch(receiveToken(jwt))
+      }
+    )
   }
 }
