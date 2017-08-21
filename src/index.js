@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import configureStore from './configureStore'
-import App from './containers/App'
 import { saveState } from './localStorage'
+import App from './containers/App'
 import registerServiceWorker from './registerServiceWorker'
 
 const store = configureStore()
