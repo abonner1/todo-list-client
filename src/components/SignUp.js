@@ -8,8 +8,7 @@ class SignUp extends Component {
 
     this.state = {
       email: '',
-      password: '',
-      passwordConfirmation: ''
+      password: ''
     }
   }
 
@@ -31,7 +30,6 @@ class SignUp extends Component {
         <form onSubmit={this.handleSubmit}>
           <input type="text" placeholder="Your Email" name="email" onChange={this.handleChange} value={this.state.email} />
           <input type="password" name="password" placeholder="Password" onChange={this.handleChange} value={this.state.password}/>
-          <input type="password" name="passwordConfirmation" placeholder="Confirm Password" onChange={this.handleChange} value={this.state.passwordConfirmation} />
           <input type="submit" value="Sign up" />
         </form>
       </div>
