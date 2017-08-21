@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { createUser } from '../actions/users'
 
 class SignUp extends Component {
   constructor(props) {
@@ -17,11 +19,16 @@ class SignUp extends Component {
     })
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault()
+    this.props.dispatch(createUser({email: this.state.email, password: this.state.password}))
+  }
+
   render() {
     return (
       <div>
         <h1>Sign up</h1>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input type="text" placeholder="Your Email" name="email" onChange={this.handleChange} value={this.state.email} />
           <input type="password" name="password" placeholder="Password" onChange={this.handleChange} value={this.state.password}/>
           <input type="password" name="passwordConfirmation" placeholder="Confirm Password" onChange={this.handleChange} value={this.state.passwordConfirmation} />
@@ -32,4 +39,10 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp
+function mapDispatchToState(dispatch) {
+  return {
+    dispatch: dispatch
+  }
+}
+
+export default connect(null, mapDispatchToState)(SignUp)
