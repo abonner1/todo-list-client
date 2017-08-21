@@ -1,11 +1,11 @@
 import React from 'react'
 import AddTodoList from './AddTodoList'
-import SingleTodoList from './SingleTodoList'
+import TodoListDisplay from './TodoListDisplay'
 
 
 const TodoLists = ({match, dispatch, todoLists}) => {
   const displayTodoLists = todoLists.map((todoList, i) => {
-    return <SingleTodoList key={i} todoList={todoList} dispatch={dispatch}/>
+    return <TodoListDisplay key={i} todoList={todoList} dispatch={dispatch}/>
   })
 
   return (
