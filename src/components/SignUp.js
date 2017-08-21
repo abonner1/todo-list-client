@@ -39,10 +39,10 @@ class SignUp extends Component {
   }
 }
 
-function mapDispatchToState(dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
-    dispatch: dispatch
+    dispatch
   }
 }
 
-export default connect(null, mapDispatchToState)(SignUp)
+export default connect(null, mapDispatchToProps)(SignUp)
