@@ -6,11 +6,11 @@ import ConnectedTodoLists from './ConnectedTodoLists'
 import VisibleTodoList from './VisibleTodoList'
 import EnsureLoggedInContainer from './EnsureLoggedInContainer'
 
-import logOut from '../actions/users'
+import { logOut } from '../actions/users'
 
 class App extends Component {
   handleClick = () => {
-
+    this.props.dispatch(logOut())
   }
 
   render() {
@@ -37,4 +37,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProp, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)
