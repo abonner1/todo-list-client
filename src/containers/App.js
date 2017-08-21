@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-
-import ConnectedTodoLists from './ConnectedTodoLists'
-import VisibleTodoList from './VisibleTodoList'
+import AppRoutes from './AppRoutes'
 import EnsureLoggedInContainer from './EnsureLoggedInContainer'
-
 import { logOut } from '../actions/users'
 
 class App extends Component {
@@ -14,12 +11,12 @@ class App extends Component {
   }
 
   render() {
+    const authRoutes = <Route component={EnsureLoggedInContainer} />
+
     return (
       <div>
-        {this.props.isAuthenticated ? <Route path="/todo_lists" component={ConnectedTodoLists} /> : <Redirect to="/" /> }
-        {this.props.isAuthenticated ? <Route path="/todo_lists/:todo_list_id" component={VisibleTodoList} /> : <Redirect to="/" /> }
-        {this.props.isAuthenticated ? <button type="button" onClick={this.handleClick}>Log out</button> : null }
-        <Route component={EnsureLoggedInContainer} />
+        {this.props.isAuthenticated ? <AppRoutes /> : <Redirect to="/" /> }
+        {authRoutes}
       </div>
     )
   }
