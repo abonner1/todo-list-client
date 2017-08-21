@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import AppRoutes from './AppRoutes'
-import EnsureLoggedInContainer from './EnsureLoggedInContainer'
+import Auth from './Auth'
 import { logOut } from '../actions/users'
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
   }
 
   render() {
-    const authRoutes = <Route component={EnsureLoggedInContainer} />
+    const authRoutes = <Route component={Auth} />
 
     return (
       <div>

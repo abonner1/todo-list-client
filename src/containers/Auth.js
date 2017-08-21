@@ -4,7 +4,7 @@ import { Route, Redirect, Link } from 'react-router-dom'
 import SignIn from '../components/SignIn'
 import SignUp from '../components/SignUp'
 
-class EnsureLoggedInContainer extends Component {
+class Auth extends Component {
   render() {
     if (!this.props.isAuthenticated) {
       return (
@@ -29,4 +29,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(EnsureLoggedInContainer)
+export default connect(mapStateToProps)(Auth)
