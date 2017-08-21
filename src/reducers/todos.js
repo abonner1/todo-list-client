@@ -1,8 +1,9 @@
-let i = 1
+import cuid from 'cuid'
+
 const todos = (state = [], action) => {
   switch(action.type) {
     case 'ADD_TODO':
-      const newTodo = {...action.todo, id: i++, completed: false}
+      const newTodo = {...action.todo, id: cuid(), completed: false}
       return [...state, newTodo]
     case 'TOGGLE_TODO':
       return state.map(todo => (todo.id === action.id) ? {...todo, completed: !todo.completed} : todo)
