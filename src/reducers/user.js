@@ -8,7 +8,7 @@ const user = (state = {
     case 'ADD_USER':
       return {...state, isAddingUser: true}
     case 'AUTHENTICATE_USER':
-      return {...state, isAuthenticating: true}
+      return {...state, isAuthenticating: true, isAddingUser: false}
     case 'RECIEVE_TOKEN':
       return {...state, isAuthenticating: false, isAuthenticated: true, token: action.token}
     case 'LOGOUT':
