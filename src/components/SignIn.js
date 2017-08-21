@@ -1,18 +1,39 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { fetchToken } from '../actions/users'
 
 class SignIn extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      email: '',
+      password: ''
+    }
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+
+
   render() {
     return (
       <div>
         <h1>Sign in</h1>
-        <form>
-          <input type="text" placeholder="Your Email" />
-          <input type="password" placeholder="Password" />
+        <form >
+          <input type="text" name="email" placeholder="Your Email" onChange={this.handleChange} value={this.state.email} />
+          <input type="password" name="password" placeholder="Password" onChange={this.handleChange} value={this.state.password} />
           <input type="submit" value="Sign in" />
         </form>
       </div>
     )
   }
 }
+
+
 
 export default SignIn
