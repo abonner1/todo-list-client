@@ -21,9 +21,7 @@ export const createUser = (user) => {
           return response.json()
         }
       })
-      .then(json => {
-        dispatch(fetchToken(user))
-      })
+      .then(json => dispatch(fetchToken(user)))
   }
 }
 
