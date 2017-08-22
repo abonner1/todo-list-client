@@ -29,7 +29,7 @@ class AddTodo extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="todo-form" onSubmit={this.handleSubmit}>
         <input type="text" placeholder="Add Todo" onChange={this.handleChange} value={this.state.text} />
         <input className="button" type="submit" value="+" />
       </form>
