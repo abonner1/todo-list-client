@@ -1,10 +1,10 @@
 import fetch from 'isomorphic-fetch'
 
-export const addUser = () => ({ type: 'ADD_USER' })
+const addUser = () => ({ type: 'ADD_USER' })
 
-export const authenticateUser = () => ({ type: 'AUTHENTICATE_USER' })
+const authenticateUser = () => ({ type: 'AUTHENTICATE_USER' })
 
-export const receiveToken = token => ({ type: 'RECIEVE_TOKEN', token: token })
+const receiveToken = token => ({ type: 'RECIEVE_TOKEN', token: token })
 
 export const logOut = () => ({ type: 'LOGOUT' })
 
