@@ -4,13 +4,9 @@ import { toggleTodo } from '../actions/todos'
 
 const Todo = (props) => {
   return (
-    <li
-      style={
-        {textDecoration: props.todo.completed ? 'line-through' : 'none'}
-      }
-      onClick={() => props.onTodoSubmit(toggleTodo(props.todo.id))}>
-      {props.todo.description}
-      <button type="button" onClick={() => props.onTodoSubmit(deleteTodo(props.todo.id))}>
+    <li style={{textDecoration: props.todo.completed ? 'line-through' : 'none'}}>
+      <span onClick={() => props.dispatch(toggleTodo(props.todo.id))}>{props.todo.description}</span>
+      <button type="button" onClick={() => props.dispatch(deleteTodo(props.todo.id))}>
         X
       </button>
     </li>
