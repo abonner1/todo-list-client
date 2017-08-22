@@ -31,7 +31,7 @@ class AddTodo extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <input type="text" placeholder="Add Todo" onChange={this.handleChange} value={this.state.text} />
-        <input type="submit" value="+" />
+        <input className="button" type="submit" value="+" />
       </form>
     )
   }

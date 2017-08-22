@@ -15,7 +15,6 @@ class App extends Component {
 
     return (
       <div>
-        <h1>TodoLists!</h1>
         {this.props.isAuthenticated ? <AppRoutes handleClick={this.handleClick} /> : <Redirect to="/" /> }
         {authRoutes}
       </div>
