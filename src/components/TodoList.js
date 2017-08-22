@@ -14,7 +14,7 @@ const TodoList = ({todoLists, todos, dispatch, match}) => {
     <div className="inline todo-list">
       <h2>{currentTodoList && currentTodoList.name}</h2>
       <AddTodo dispatch={dispatch} id={match.params.todo_list_id} />
-      <ul>
+      <ul className="list">
         {todoDisplay}
       </ul>
       {emptyTodoListRedirect}

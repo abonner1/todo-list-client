@@ -18,3 +18,10 @@ div.todo-lists {
 div.todo-list {
   padding: 0px 20px;
 }
+
+ul.list {
+  list-style-type: none;
+  text-align: left;
+  padding: 0;
+  margin-left: 3px;
+}
