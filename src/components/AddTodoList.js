@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { addTodoList } from '../actions/todoLists'
+import AddTodoListForm from './AddTodoListForm'
 
 class AddTodoList extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class AddTodoList extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.onTodoListSubmit(addTodoList(this.state.text))
+    this.props.dispatch(addTodoList(this.state.text))
     this.setState({
       showAddBox: false
     })
@@ -32,26 +33,15 @@ class AddTodoList extends Component {
   }
 
   render () {
-    const AddTodoListBox = () => {
-      if (this.state.showAddBox) {
-        return (
-          <form onSubmit={this.handleSubmit}>
-            <input type="text" onChange={this.handleChange} />
-            <input type="submit" value="Add TodoList" />
-            <button type="button" onClick={this.handleClick}>Cancel</button>
-          </form>
-        )
-      } else {
-        return (
+    if (this.state.showAddBox) {
+      return <AddTodoListForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleClick={this.handleClick} />
+    } else {
+      return (
+        <div>
           <button onClick={this.handleClick}>+ Add Todo</button>
-        )
-      }
+        </div>
+      )
     }
-    return (
-      <div>
-        {AddTodoListBox()}
-      </div>
-    )
   }
 }
 
