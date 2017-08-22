@@ -5,7 +5,7 @@ import { deleteTodoList } from '../actions/todoLists'
 const TodoListDisplay = ({todoList, dispatch}) => {
   return (
     <li>
-      <Link to={`/todo_lists/${todoList.id}`}>
+      <Link className="todo-list-links" to={`/todo_lists/${todoList.id}`}>
         {todoList.name}
       </Link>
       <button type="button" onClick={() => dispatch(deleteTodoList(todoList.id))}>
