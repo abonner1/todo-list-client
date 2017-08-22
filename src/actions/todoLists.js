@@ -1,13 +1,3 @@
-export const addTodoList = (todoList) => {
-  return {
-    type: 'ADD_TODOLIST',
-    todoList
-  }
-}
+export const addTodoList = (todoList) => ({ type: 'ADD_TODOLIST', todoList })
 
-export const deleteTodoList = id => {
-  return {
-    type: 'DELETE_TODOLIST',
-    id
-  }
-}
+export const deleteTodoList = id => ({ type: 'DELETE_TODOLIST', id })
