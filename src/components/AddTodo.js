@@ -12,7 +12,7 @@ class AddTodo extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.onTodoSubmit(addTodo({
+    this.props.dispatch(addTodo({
       description: this.state.text,
       todoListId: this.props.id
     }))
