@@ -1,20 +1,5 @@
-export const addTodo = todo => {
-  return {
-    type: 'ADD_TODO',
-    todo
-  }
-}
+export const addTodo = todo => ({ type: 'ADD_TODO', todo })
 
-export const toggleTodo = id => {
-  return {
-    type: 'TOGGLE_TODO',
-    id
-  }
-}
+export const toggleTodo = id => ({ type: 'TOGGLE_TODO', id })
 
-export const deleteTodo = id => {
-  return {
-    type: 'DELETE_TODO',
-    id
-  }
-}
+export const deleteTodo = id => ({ type: 'DELETE_TODO', id })
