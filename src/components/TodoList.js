@@ -11,8 +11,8 @@ const TodoList = ({todoLists, todos, dispatch, match}) => {
   const emptyTodoListRedirect = currentTodoList ? null : <Redirect from="/todo_lists/:todo_list_id" to="/todo_lists" />
 
   return (
-    <div>
-      <h1>{currentTodoList && currentTodoList.name}</h1>
+    <div className="inline todo-list">
+      <h2>{currentTodoList && currentTodoList.name}</h2>
       <AddTodo dispatch={dispatch} id={match.params.todo_list_id} />
       <ul>
         {todoDisplay}

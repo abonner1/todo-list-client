@@ -9,7 +9,7 @@ const TodoLists = ({match, dispatch, todoLists}) => {
   })
 
   return (
-    <div>
+    <div className="inline todo-lists">
       <h2>Your Todo Lists</h2>
       <ul>
         {displayTodoLists}
