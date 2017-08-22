@@ -33,15 +33,9 @@ class AddTodoList extends Component {
   }
 
   render () {
-    if (this.state.showAddBox) {
-      return <AddTodoListForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleClick={this.handleClick} />
-    } else {
-      return (
-        <div>
-          <button onClick={this.handleClick}>+ Add Todo</button>
-        </div>
-      )
-    }
+    return (this.state.showAddBox)
+    ? <AddTodoListForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleClick={this.handleClick} />
+    : <button onClick={this.handleClick}>+ Add Todo</button>
   }
 }
 
