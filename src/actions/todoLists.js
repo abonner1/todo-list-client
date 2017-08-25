@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch'
+
 const getTodoLists = () => ({ type: 'GET_TODOLISTS' })
 
 const storeTodoLists = (todoLists) => ({ type: 'STORE_TODOLISTS', todoLists })
