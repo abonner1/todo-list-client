@@ -6,7 +6,7 @@ const storeTodoLists = (todoLists) => ({ type: 'STORE_TODOLISTS', todoLists })
 
 const addTodoList = (todoList) => ({ type: 'ADD_TODOLIST', todoList })
 
-export const deleteTodoList = id => ({ type: 'DELETE_TODOLIST', id })
+const deleteTodoList = id => ({ type: 'DELETE_TODOLIST', id })
 
 export const fetchTodoLists = (token) => {
   return dispatch => {
@@ -32,5 +32,19 @@ export const createTodoList = (todo_list, token) => {
     })
       .then(response => response.json())
       .then(json => dispatch(addTodoList(json)))
+  }
+}
+
+export const destroyTodoList = (id, token) => {
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/todo_lists/${id}`, {
+      method: 'DELETE',
+      body: JSON.stringify({id}),
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token
+      }
+    })
+      .then(response => response.status === 204 ? dispatch(deleteTodoList(id)) : console.log(response.json().message))
   }
 }
