@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { deleteTodoList } from '../actions/todoLists'
+import { destroyTodoList } from '../actions/todoLists'
 
 const TodoListDisplay = ({todoList, dispatch}) => {
   return (
@@ -8,7 +8,7 @@ const TodoListDisplay = ({todoList, dispatch}) => {
       <Link className="todo-list-links" to={`/todo_lists/${todoList.id}`}>
         {todoList.name}
       </Link>
-      <button type="button" onClick={() => dispatch(deleteTodoList(todoList.id))}>
+      <button type="button" onClick={() => dispatch(destroyTodoList(todoList.id, localStorage.getItem('token')))}>
         X
       </button>
     </li>
