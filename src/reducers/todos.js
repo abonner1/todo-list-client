@@ -2,6 +2,10 @@ import cuid from 'cuid'
 
 const todos = (state = [], action) => {
   switch(action.type) {
+    case 'GET_TODOS':
+      return state
+    case 'STORE_TODOS':
+      return [...state, ...action.todos]
     case 'ADD_TODO':
       const newTodo = {...action.todo, id: cuid(), completed: false}
       return [...state, newTodo]
