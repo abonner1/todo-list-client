@@ -1,5 +1,3 @@
-import cuid from 'cuid'
-
 const todoLists = (state = [], action) => {
   switch(action.type) {
     case 'GET_TODOLISTS':
@@ -7,8 +5,7 @@ const todoLists = (state = [], action) => {
     case 'STORE_TODOLISTS':
       return action.todoLists
     case 'ADD_TODOLIST':
-      let todoList = {name: action.todoList, id: cuid(), favorited: false}
-      return [...state, todoList]
+      return [...state, action.todoList]
     case 'EDIT_TODOLIST':
       return state.map(todoList =>
         (todoList.id === action.todoList.id)
