@@ -1,5 +1,3 @@
-import cuid from 'cuid'
-
 const todos = (state = [], action) => {
   switch(action.type) {
     case 'GET_TODOS':
@@ -7,8 +5,7 @@ const todos = (state = [], action) => {
     case 'STORE_TODOS':
       return [...action.todos]
     case 'ADD_TODO':
-      const newTodo = {...action.todo, id: cuid(), completed: false}
-      return [...state, newTodo]
+      return [...state, action.todo]
     case 'TOGGLE_TODO':
       return state.map(todo =>
         (todo.id === action.id)
