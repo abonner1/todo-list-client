@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { addTodo } from '../actions/todos'
+import { createTodo } from '../actions/todos'
 
 class AddTodo extends Component {
   constructor(props) {
@@ -12,10 +12,7 @@ class AddTodo extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.dispatch(addTodo({
-      description: this.state.text,
-      todoListId: this.props.id
-    }))
+    this.props.dispatch(createTodo({ description: this.state.text }, this.props.id, localStorage.getItem('token')))
     this.setState({
       text: ''
     })
