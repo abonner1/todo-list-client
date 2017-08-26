@@ -1,7 +1,5 @@
 const todos = (state = [], action) => {
   switch(action.type) {
-    case 'GET_TODOS':
-      return state
     case 'STORE_TODOS':
       return [...action.todos]
     case 'ADD_TODO':

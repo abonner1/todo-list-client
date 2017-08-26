@@ -1,7 +1,5 @@
 const todoLists = (state = [], action) => {
   switch(action.type) {
-    case 'GET_TODOLISTS':
-    return [{isFetching: true}, ...state]
     case 'STORE_TODOLISTS':
       return action.todoLists
     case 'ADD_TODOLIST':

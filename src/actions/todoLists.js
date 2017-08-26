@@ -1,7 +1,5 @@
 import fetch from 'isomorphic-fetch'
 
-const getTodoLists = () => ({ type: 'GET_TODOLISTS' })
-
 const storeTodoLists = (todoLists) => ({ type: 'STORE_TODOLISTS', todoLists })
 
 const addTodoList = (todoList) => ({ type: 'ADD_TODOLIST', todoList })
@@ -10,7 +8,6 @@ const deleteTodoList = id => ({ type: 'DELETE_TODOLIST', id })
 
 export const fetchTodoLists = (token) => {
   return dispatch => {
-    dispatch(getTodoLists())
     return fetch('http://localhost:3001/api/todo_lists', {
       method: 'GET',
       headers: { "Authorization": token }
