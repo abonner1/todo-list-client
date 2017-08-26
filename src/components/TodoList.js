@@ -6,7 +6,7 @@ import { fetchTodos } from '../actions/todos'
 
 
 class TodoList extends Component{
-  componentWillMount() {
+  componentDidMount() {
     this.props.dispatch(fetchTodos(this.props.match.params.todo_list_id, localStorage.getItem('token')))
   }
 
