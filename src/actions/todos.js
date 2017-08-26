@@ -8,7 +8,7 @@ const addTodo = todo => ({ type: 'ADD_TODO', todo })
 
 export const toggleTodo = id => ({ type: 'TOGGLE_TODO', id })
 
-export const deleteTodo = id => ({ type: 'DELETE_TODO', id })
+const deleteTodo = id => ({ type: 'DELETE_TODO', id })
 
 export const fetchTodos = (todo_list_id, token) => {
   return dispatch => {
@@ -34,5 +34,16 @@ export const createTodo = (todo, id, token) => {
     })
       .then(response => response.json())
       .then(json => dispatch(addTodo(json)))
+  }
+}
+
+export const destroyTodo = (id, token) => {
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/todos/${id}`, {
+      method: 'DELETE',
+      body: JSON.stringify({id}),
+      headers: {"Authorization": token}
+    })
+      .then(response => response.status === 204 ? dispatch(deleteTodo(id)) : console.log(response.json().message))
   }
 }
