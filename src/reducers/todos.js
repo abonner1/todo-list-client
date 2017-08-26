@@ -5,7 +5,7 @@ const todos = (state = [], action) => {
     case 'GET_TODOS':
       return state
     case 'STORE_TODOS':
-      return [...state, ...action.todos]
+      return [...action.todos]
     case 'ADD_TODO':
       const newTodo = {...action.todo, id: cuid(), completed: false}
       return [...state, newTodo]
