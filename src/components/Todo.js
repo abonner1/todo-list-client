@@ -10,7 +10,7 @@ const Todo = (props) => {
   return (
     <li style={{textDecoration: props.todo.completed ? 'line-through' : 'none'}}>
       <span onClick={handleTodoToggle} >{props.todo.description}</span>
-      <button type="button" onClick={handleTodoDestroy}>Delete</button>
+      <button type="button" onClick={handleTodoDestroy}>x</button>
     </li>
   )
 }
