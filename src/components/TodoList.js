@@ -28,21 +28,23 @@ class TodoList extends Component{
     return <Todo key={i} todo={todo} dispatch={this.props.dispatch} />
   })
 
-  emptyTodoListRedirect = () =>
-    this.currentTodoList
-    ? null
-    : <Redirect from="/todo_lists/:todo_list_id" to="/todo_lists" />
+  currentTodoListDisplay = () => (
+    <div className="inline todo-list">
+      <h2>{this.currentTodoList().name}</h2>
+
+      <AddTodo dispatch={this.props.dispatch} id={this.props.match.params.todo_list_id} />
+
+      <ul className="list">
+        {this.todoDisplay()}
+      </ul>
+    </div>
+  )
 
   render() {
     return (
-      <div className="inline todo-list">
-        <h2>{this.currentTodoList().name}</h2>
-        <AddTodo dispatch={this.props.dispatch} id={this.props.match.params.todo_list_id} />
-        <ul className="list">
-          {this.todoDisplay()}
-        </ul>
-        {this.emptyTodoListRedirect()}
-      </div>
+      this.currentTodoList()
+      ? this.currentTodoListDisplay()
+      : <Redirect from="/todo_lists/:todo_list_id" to="/todo_lists" />
     )
   }
 }
