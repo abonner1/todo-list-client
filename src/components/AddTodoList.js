@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { createTodoList } from '../actions/todoLists'
+import { getToken } from '../helpers/getToken'
 import AddTodoListForm from './AddTodoListForm'
 
 class AddTodoList extends Component {
@@ -14,7 +15,7 @@ class AddTodoList extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.dispatch(createTodoList({name: this.state.text}, localStorage.getItem('token')))
+    this.props.dispatch(createTodoList({name: this.state.text}, getToken()))
     this.setState({
       showAddBox: false
     })
@@ -35,7 +36,7 @@ class AddTodoList extends Component {
   render () {
     return (this.state.showAddBox)
     ? <AddTodoListForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleClick={this.handleClick} />
-    : <button onClick={this.handleClick}>+ Add Todo</button>
+    : <button onClick={this.handleClick}>+ Add TodoList</button>
   }
 }
 
