@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { createTodo } from '../actions/todos'
+import { getToken } from '../helpers/getToken'
 
 class AddTodo extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class AddTodo extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.dispatch(createTodo({ description: this.state.text }, this.props.id, localStorage.getItem('token')))
+    this.props.dispatch(createTodo({ description: this.state.text }, this.props.id, getToken()))
     this.setState({
       text: ''
     })
