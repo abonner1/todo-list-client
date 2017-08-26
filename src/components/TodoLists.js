@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import AddTodoList from './AddTodoList'
 import TodoListDisplay from './TodoListDisplay'
 import { fetchTodoLists } from '../actions/todoLists'
+import { getToken } from '../helpers/getToken'
 
 class TodoLists extends Component {
-  componentWillMount() {
-    this.props.dispatch(fetchTodoLists(localStorage.getItem('token')))
+  componentDidMount() {
+    this.props.dispatch(fetchTodoLists(getToken()))
   }
 
   render () {
