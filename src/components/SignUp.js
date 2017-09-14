@@ -8,7 +8,8 @@ class SignUp extends Component {
 
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      confirmedPassword: ''
     }
   }
 
@@ -23,7 +24,11 @@ class SignUp extends Component {
     this.props.dispatch(createUser({email: this.state.email, password: this.state.password}))
   }
 
+
+
   render() {
+    const {email, password, confirmedPassword} = this.state
+    const isEnabled = email.length > 0 && password.length > 0 && password === confirmedPassword
     return (
       <div>
         <h1>Sign up</h1>
@@ -40,7 +45,13 @@ class SignUp extends Component {
             placeholder="Password"
             onChange={this.handleChange}
             value={this.state.password}/><br/>
-          <input type="submit" value="Sign up" />
+          <input
+            type="password"
+            name="confirmedPassword"
+            placeholder="Confirm Password"
+            onChange={this.handleChange}
+            value={this.state.confirmedPassword}/><br/>
+          <input disabled={!isEnabled} type="submit" value="Sign up" />
         </form>
       </div>
     )
