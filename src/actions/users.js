@@ -18,24 +18,26 @@ export const createUser = (user) => {
       body: JSON.stringify({user}),
       headers: { "Content-Type": "application/json" }
     })
-      .then(response => response.json())
-      .then(json => {
-        if (json.message) {
-          return dispatch(registrationFailed(json.message))
-        } else {
-          return dispatch(fetchToken(json))
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.statusText)
         }
+        return response.json()
+      })
+      .then(json => dispatch(fetchToken(json)))
+      .catch((error) => {
+        console.log(error)
+        return dispatch(registrationFailed('Email is already taken.'))
       })
   }
 }
 
 export const fetchToken = (user) => {
-  console.log(user)
   return dispatch => {
     dispatch(authenticateUser())
     return fetch('http://localhost:3001/api/user_token', {
       method: 'POST',
-      body: JSON.stringify({ auth: { user: { email: user.email, password: user.password } } }),
+      body: JSON.stringify({ auth: { email: user.email, password: user.password } }),
       headers: { "Content-Type": "application/json" }
     })
       .then(response => response.json())
